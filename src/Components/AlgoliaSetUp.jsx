@@ -1,24 +1,17 @@
-
 import React, { useState } from "react";
 import './AlgoliaSetUp.css';
-import axios from 'axios';
+import { addIndexToApi } from '../api/AlgoliaConfiguration.js';
 
 const AlgoliaSetUp = () => {
     const [applicationId, setApplicationId] = useState('');
-    const [indices, setIndices] = useState([]);
-  
+    const [indices, setIndices] = useState('');
+
     const addIndicesToIndicesArray = () => {
-      axios
-        .post('/v1/api/configuration/add-index', {
-          applicationId: applicationId,
-          indices: [indices],
-        })
+      addIndexToApi(applicationId, indices)
         .then((response) => {
-          // Handle the response as needed
           console.log('Request successful', response.data);
         })
         .catch((error) => {
-          // Handle errors
           console.error('Error:', error);
         });
     };
