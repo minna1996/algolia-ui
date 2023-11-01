@@ -1,33 +1,26 @@
 
 import React, { useState } from "react";
 import './AlgoliaSetUp.css';
-import handleIndex from "../api/AlgoliaConfiguration.js"
+import axios from 'axios';
 
 const AlgoliaSetUp = () => {
     const [applicationId, setApplicationId] = useState('');
-    const [indices, setindices] = useState([]);
-
-    const requestData = {
-        applicationId,
-        indices,
-      };
-
-    const handleSave = async () => {
-        if (!requestData.applicationId || !requestData.indices) {
-            alert('Please fill out both Application Id and Index Name');
-            return;
-        }
-
-        try {
-            const response = await handleIndex(requestData);
-            console.log(response.data);
-            if(response && response.data){
-                console.log('Data saved successfully', response.data);
-            }
-            
-        } catch (error) {
-            console.error('Error saving data', error);
-        }
+    const [indices, setIndices] = useState([]);
+  
+    const addIndicesToIndicesArray = () => {
+      axios
+        .post('/v1/api/configuration/add-index', {
+          applicationId: applicationId,
+          indices: [indices],
+        })
+        .then((response) => {
+          // Handle the response as needed
+          console.log('Request successful', response.data);
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error('Error:', error);
+        });
     };
 
     return (
@@ -50,13 +43,13 @@ const AlgoliaSetUp = () => {
                         type="text"
                         placeholder="Enter your index name"
                         value={indices}
-                        onChange={(e) => setindices(e.target.value)}
+                        onChange={(e) => setIndices(e.target.value)}
                         required
                     />
                 </div>
             </div>
             <div className="submit-container">
-                <div className="submit" onClick={handleSave}>Index</div>
+                <div className="submit" onClick={addIndicesToIndicesArray}>Index</div>
                 <div className="submit">Search</div>
             </div>
         </div>
