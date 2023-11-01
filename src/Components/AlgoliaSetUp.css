@@ -23,13 +23,6 @@
     font-weight: 9px;
 }
 
-.underline{
-    width: 15rem;
-    height: 6px;
-    background: #3c000d;
-    border-radius: 9px;
-}
-
 .inputs{
     margin-top: 55px;
     display: flex;

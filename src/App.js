@@ -1,5 +1,5 @@
 import './App.css';
-import AlgoliaSetUp from './Components/Form/AlgoliaSetUp'
+import AlgoliaSetUp from './Components/AlgoliaSetUp'
 function App() {
   return (
     <div>
