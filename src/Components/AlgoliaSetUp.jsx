@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './AlgoliaSetUp.css';
-import axios from 'axios';
+import axios from "axios";
+import { addIndexToApi } from '../api/AlgoliaConfiguration.js';
 
 const AlgoliaSetUp = () => {
     const [applicationId, setApplicationId] = useState('');
@@ -19,7 +20,7 @@ const AlgoliaSetUp = () => {
             })
             .then((response) => {
                 console.log('Request successful', response.data);
-                alert('Indexed successful'); // Display a success alert
+                alert('Indexed successful'); 
                 setApplicationId('');
                 setIndexName('');
             })

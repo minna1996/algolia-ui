@@ -1,18 +1,12 @@
-// import axios from "axios";
+// import axios from 'axios';
 
-// const handleIndex = async (requestData) => {
-//     console.log({requestData});
-//     return axios
-//         .post("/v1/api/configuration/add-index", {requestData })
-//         .then((response) => {
-//             console.log('Data saved successfully', response);
-//             return response;
-//         })
-//         .catch((error) => {
-//             console.error('Error saving data', error);
-//             throw error;
-//         });
+// const instance = axios.create({
+//   baseURL: '/v1/api', 
+// });
+
+// export const addIndexToApi = (applicationId, indices) => {
+//   return instance.post('/configuration/add-index', {
+//     applicationId: applicationId,
+//     indices: [indices],
+//   });
 // };
-
-
-// export default handleIndex;
