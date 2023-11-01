@@ -12,9 +12,9 @@ const AlogliaSetUp =() =>{
                 <div className="input">
                     <input type="text" placeholder="Enter your application ID" required/>
                 </div>  
-                <div className="input">
+                {/* <div className="input">
                     <input type="text" placeholder="Enter your admin key" required/>
-                </div>
+                </div> */}
                 <div className="input">
                     <input type="text" placeholder="Enter your index name" required/>
                 </div>      
