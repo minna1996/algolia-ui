@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import './AlgoliaSetUp.css';
 import axios from "axios";
-import { addIndexToApi } from '../api/AlgoliaConfiguration.js';
 
 const AlgoliaSetUp = () => {
     const [applicationId, setApplicationId] = useState('');
     const [indexName, setIndexName] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const addIndicesToIndicesArray = () => {
         if (!applicationId || !indexName) {
             alert("Application ID and Index Name are required.");
             return;
         }
+
+        setLoading(true);
 
         axios
             .post('/v1/api/algolia/bulk-index', {
@@ -20,12 +22,15 @@ const AlgoliaSetUp = () => {
             })
             .then((response) => {
                 console.log('Request successful', response.data);
-                alert('Indexed successful'); 
+                alert('Indexed successful');
                 setApplicationId('');
                 setIndexName('');
             })
             .catch((error) => {
                 alert('Error:', error);
+            })
+            .finally(() => {
+                setLoading(false);
             });
     };
 
@@ -58,6 +63,11 @@ const AlgoliaSetUp = () => {
                 <div className="submit" onClick={addIndicesToIndicesArray}>Index</div>
                 <div className="submit">Search</div>
             </div>
+            {loading && (
+                <div className="loader-container">
+                    <div className="loader"></div>
+                </div>
+            )}
         </div>
     );
 }
