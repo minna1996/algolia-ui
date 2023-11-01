@@ -3,7 +3,7 @@ import axios from "axios";
 const handleIndex = async (requestData) => {
     console.log({requestData});
     return axios
-        .post('/v1/api/configuration/add-index', {requestData })
+        .post("/v1/api/configuration/add-index", {requestData })
         .then((response) => {
             console.log('Data saved successfully', response);
             return response;

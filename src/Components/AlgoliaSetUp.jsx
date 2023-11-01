@@ -4,23 +4,27 @@ import './AlgoliaSetUp.css';
 import handleIndex from "../api/AlgoliaConfiguration.js"
 
 const AlgoliaSetUp = () => {
-    const [applicationID, setApplicationID] = useState('');
-    const [indexName, setIndexName] = useState([]);
+    const [applicationId, setApplicationId] = useState('');
+    const [indices, setindices] = useState([]);
 
     const requestData = {
-        applicationID,
-        indexName, // Send indexName as an array
+        applicationId,
+        indices,
       };
 
     const handleSave = async () => {
-        if (!requestData.applicationID || !requestData.indexName) {
-            alert('Please fill out both Application ID and Index Name');
+        if (!requestData.applicationId || !requestData.indices) {
+            alert('Please fill out both Application Id and Index Name');
             return;
         }
 
         try {
             const response = await handleIndex(requestData);
-            console.log('Data saved successfully', response.data);
+            console.log(response.data);
+            if(response && response.data){
+                console.log('Data saved successfully', response.data);
+            }
+            
         } catch (error) {
             console.error('Error saving data', error);
         }
@@ -35,9 +39,9 @@ const AlgoliaSetUp = () => {
                 <div className="input">
                     <input
                         type="text"
-                        placeholder="Enter your application ID"
-                        value={applicationID}
-                        onChange={(e) => setApplicationID(e.target.value)}
+                        placeholder="Enter your application Id"
+                        value={applicationId}
+                        onChange={(e) => setApplicationId(e.target.value)}
                         required
                     />
                 </div>
@@ -45,8 +49,8 @@ const AlgoliaSetUp = () => {
                     <input
                         type="text"
                         placeholder="Enter your index name"
-                        value={indexName}
-                        onChange={(e) => setIndexName(e.target.value)}
+                        value={indices}
+                        onChange={(e) => setindices(e.target.value)}
                         required
                     />
                 </div>
