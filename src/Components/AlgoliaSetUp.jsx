@@ -37,7 +37,7 @@ const AlgoliaSetUp = () => {
     return (
         <div className='container'>
             <div className="header">
-                <div className="text">Algolia</div>
+                <div className="text">Algolia Connector</div>
             </div>
             <div className="inputs">
                 <div className="input">
