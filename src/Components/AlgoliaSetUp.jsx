@@ -1,25 +1,20 @@
 import React, { useState } from "react";
 import './AlgoliaSetUp.css';
-import axios from "axios";
+import { addIndexToApi } from '../api/AlgoliaConfiguration.js';
 
 const AlgoliaSetUp = () => {
     const [applicationId, setApplicationId] = useState('');
     const [indexName, setIndexName] = useState('');
     const [loading, setLoading] = useState(false);
 
+
     const addIndicesToIndicesArray = () => {
         if (!applicationId || !indexName) {
             alert("Application ID and Index Name are required.");
             return;
         }
-
         setLoading(true);
-
-        axios
-            .post('/v1/api/algolia/bulk-index', {
-                applicationId: applicationId,
-                indexName: indexName,
-            })
+        addIndexToApi(applicationId, indexName)
             .then((response) => {
                 console.log('Request successful', response.data);
                 alert('Indexed successful');
@@ -37,7 +32,7 @@ const AlgoliaSetUp = () => {
     return (
         <div className='container'>
             <div className="header">
-                <div className="text">Algolia Connector</div>
+                <div className="text">Algolia</div>
             </div>
             <div className="inputs">
                 <div className="input">
