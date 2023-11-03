@@ -1,9 +1,11 @@
+import React from 'react';
 import './App.css';
-import AlgoliaSetUp from './Components/AlgoliaSetUp'
+import Dashboard from './Components/Dashboard/Dashboard';
+
 function App() {
   return (
-    <div>
-     <AlgoliaSetUp />
+    <div className="App">
+      <Dashboard />
     </div>
   );
 }
