@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import './AlgoliaSetUp.css';
-import { addIndexToApi } from '../api/AlgoliaConfiguration.js';
+import { addIndexToApi } from '../../api/AlgoliaConfiguration.js';
+import '../CSS/Common.css'
 
 const AlgoliaSetUp = () => {
     const [applicationId, setApplicationId] = useState('');
     const [indexName, setIndexName] = useState('');
     const [loading, setLoading] = useState(false);
-
+console.log("hhhh")
 
     const addIndicesToIndicesArray = () => {
         if (!applicationId || !indexName) {
@@ -32,7 +32,7 @@ const AlgoliaSetUp = () => {
     return (
         <div className='container'>
             <div className="header">
-                <div className="text">Algolia</div>
+                <div className="text">Create your Index</div>
             </div>
             <div className="inputs">
                 <div className="input">
@@ -56,7 +56,7 @@ const AlgoliaSetUp = () => {
             </div>
             <div className="submit-container">
                 <div className="submit" onClick={addIndicesToIndicesArray}>Index</div>
-                <div className="submit">Search</div>
+                {/* <div className="submit">Search</div> */}
             </div>
             {loading && (
                 <div className="loader-container">

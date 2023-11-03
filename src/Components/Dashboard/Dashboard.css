@@ -1,0 +1,15 @@
+.dashboard {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .content {
+    flex: 3;
+    padding-top: 5rem;
+    padding-left: 2rem;
+  }
+
+  .data-center{
+    align-items: center;
+  }
+  

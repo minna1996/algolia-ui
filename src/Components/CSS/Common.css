@@ -1,8 +1,6 @@
 .container{
     display: flex;
     flex-direction: column;
-    margin: auto;
-    margin-top: 80px;
     background: #fff;
     padding-bottom: 10px;
     width: 40rem;
@@ -19,8 +17,8 @@
 
 .text{
     color: #3c000d;
-    font-size: 48px;
-    font-weight: 9px;
+    font-size: 2rem;
+    font-weight: 5rem;
 }
 
 .inputs{
@@ -76,7 +74,7 @@
     width: 200px;
     height: 40px;
     color: #fff;
-    background: #4c00b4;
+    background: #2F4050;
     border-radius: 50px;
     font-size: 19px;
     font-weight: 700;
