@@ -15,6 +15,9 @@ const Sidebar = ({ onSectionClick }) => {
       <div className="section" onClick={() => onSectionClick('Re-Index')}>
         Re-Index
       </div>
+      <div className="section" onClick={() => onSectionClick('Attribute Transformer')}>
+        Attribute Transformer
+      </div>
     </div>
   );
 };

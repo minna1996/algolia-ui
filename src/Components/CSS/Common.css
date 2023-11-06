@@ -106,3 +106,35 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  .submit-attribute{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7rem;
+    height: 40px;
+    color: #fff;
+    background: #2F4050;
+    border-radius: 20px;
+    font-size: 19px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .container-attribute{
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding-bottom: 10px;
+    width: 50rem;
+}
+
+  .inputs-attribute{
+        margin-top: 55px;
+        margin-left: -188px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+    
+  }
